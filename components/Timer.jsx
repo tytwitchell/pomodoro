@@ -2,16 +2,10 @@ import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
 const styles = StyleSheet.create({
-  instructionsStyles: {
-    position: "absolute",
-    top: "0",
-    fontSize: 25,
-    color: "hsl(0, 0%, 96%)",
-  },
   timerContainerStyles: {
     position: "fixed",
-    width: "1000%",
-    height: "1000%",
+    width: "100%",
+    height: "100%",
     backgroundColor: "transparent",
     display: "flex",
     alignItems: "center",

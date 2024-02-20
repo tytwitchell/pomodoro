@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
 });
 
 const startTimeMin = 24;
-const breakTimeMin = 24;
+const breakTimeMin = 5;
 
 export default function Timer() {
   const [startTimer, setStartTimer] = useState(false);

@@ -32,4 +32,6 @@ I created a touchable area using TouchableOpacity to allow users to start the ti
 
 ![image](https://github.com/tytwitchell/pomodoro/assets/135183794/37e62859-b4d2-4c6e-b382-4c751fa945f7)
 
+I'm using fontVariant: "tabular-nums" to stablize the timer's font as it changes values
 
+![image](https://github.com/tytwitchell/pomodoro/assets/135183794/8a4c7dce-b321-4450-afad-e0173af9d39f)

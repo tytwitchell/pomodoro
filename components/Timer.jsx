@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     gap: "16",
   },
   timerStyles: {
-    fontSize: 50,
+    fontSize: 75,
     fontVariant: "tabular-nums",
     color: "hsl(0, 0%, 96%)",
   },

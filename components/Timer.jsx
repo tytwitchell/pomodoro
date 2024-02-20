@@ -1,14 +1,6 @@
 import React, { useEffect, useState } from "react";
-import {
-  Dimensions,
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-} from "react-native";
-import FaPlay from "react-native-vector-icons/FontAwesome";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
-const screen = Dimensions.get("window");
 const styles = StyleSheet.create({
   instructionsStyles: {
     position: "absolute",
@@ -32,7 +24,6 @@ const styles = StyleSheet.create({
     color: "hsl(0, 0%, 96%)",
   },
 });
-
 const startTimeMin = 24;
 const breakTimeMin = 5;
 

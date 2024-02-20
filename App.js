@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View } from 'react-native';
-import Timer from './components/Timer';
+import { StyleSheet, Text, View, Dimensions } from "react-native";
+import Timer from "./components/Timer";
 
 const styles = StyleSheet.create({
   container: {
@@ -17,5 +17,3 @@ export default function App() {
     </View>
   );
 }
-
-

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 
 const styles = StyleSheet.create({
   timerContainerStyles: {
@@ -13,22 +14,27 @@ const styles = StyleSheet.create({
     gap: "16",
   },
   timerStyles: {
-    fontSize: 75,
+    fontSize: 50,
+    fontWeight: "500",
     fontVariant: "tabular-nums",
-    color: "hsl(0, 0%, 96%)",
+    color: "hsl(0, 0%, 90%)",
   },
 });
 const startTimeMin = 24;
 const breakTimeMin = 5;
 
-export default function Timer() {
-  const [startTimer, setStartTimer] = useState(false);
-  const [onBreak, setOnBreak] = useState(false);
+export default function Timer({
+  onBreak,
+  setOnBreak,
+  startTimer,
+  setStartTimer,
+  setTriggerAnimation
+}) {
   const [timeRemainingMin, setTimeRemainingMin] = useState(startTimeMin);
   const [breakRemainingMin, setBreakRemainingMin] = useState(breakTimeMin);
   const [remainingSec, setRemainingSec] = useState(59);
-  const timeRemaining = `${timeRemainingMin}:${remainingSec}`;
-  const breakRemaining = `${breakRemainingMin}:${remainingSec}`;
+  const timeRemaining = `${timeRemainingMin}`;
+  const breakRemaining = `${breakRemainingMin}`;
 
   useEffect(() => {
     let timer;
@@ -44,6 +50,7 @@ export default function Timer() {
     if (startTimer && remainingSec <= 0 && timeRemainingMin > 0) {
       setTimeRemainingMin((prevTime) => prevTime - 1);
       setRemainingSec(59);
+      setTriggerAnimation(true)
     }
     if (startTimer && timeRemainingMin === 0 && remainingSec === 0) {
       setTimeout(() => {
@@ -59,6 +66,7 @@ export default function Timer() {
     if (onBreak && remainingSec <= 0 && breakRemainingMin > 0) {
       setBreakRemainingMin((prevTime) => prevTime - 1);
       setRemainingSec(59);
+      setTriggerAnimation(true);
     }
     if (onBreak && breakRemainingMin === 0 && remainingSec === 0) {
       setTimeout(() => {
@@ -66,6 +74,7 @@ export default function Timer() {
         setTimeRemainingMin(startTimeMin);
         setBreakRemainingMin(breakTimeMin);
         setRemainingSec(59);
+        setTriggerAnimation(true);
       }, 1000);
     }
     return () => clearInterval(timer);
@@ -81,7 +90,7 @@ export default function Timer() {
       </Text>
       <Text style={styles.timerStyles}>
         {!startTimer && !onBreak
-          ? "25:00"
+          ? "25"
           : onBreak
           ? breakRemaining
           : timeRemaining}

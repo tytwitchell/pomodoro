@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   wrapper: {
-    width: "450px",
+    width: "350px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",

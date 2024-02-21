@@ -6,13 +6,13 @@ import { LinearGradient } from "expo-linear-gradient";
 const styles = StyleSheet.create({
   gradient: {
     ...StyleSheet.absoluteFillObject,
-    borderRadius: "50%",
+    borderRadius: "500",
   },
   layerOne: {
     position: "absolute",
     width: "100%",
     aspectRatio: "1",
-    borderRadius: "50%",
+    borderRadius: "500",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   layerTwo: {
     width: "99%",
     aspectRatio: "1",
-    borderRadius: "50%",
+    borderRadius: "500",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
 export default function TimerLayout() {
   const [startTimer, setStartTimer] = useState(false);
   const [onBreak, setOnBreak] = useState(false);
-  const [triggerAnimation, setTriggerAnimation] = useState(false)
+  const [triggerAnimation, setTriggerAnimation] = useState(false);
   const rotationValue = useRef(new Animated.Value(0)).current;
 
   const startAnimation = () => {
@@ -44,7 +44,6 @@ export default function TimerLayout() {
       })
     ).start();
   };
-
   const rotateStyle = {
     transform: [
       {
@@ -55,7 +54,6 @@ export default function TimerLayout() {
       },
     ],
   };
-
   useEffect(() => {
     if (startTimer || onBreak) {
       startAnimation();

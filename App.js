@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Dimensions } from "react-native";
-import Timer from "./components/Timer";
+import TimerLayout from "./pages/TimerLayout";
 
 const styles = StyleSheet.create({
   container: {
@@ -8,12 +8,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  wrapper: {
+    width: "450px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Timer />
+      <View style={styles.wrapper}>
+        <TimerLayout />
+      </View>
     </View>
   );
 }

@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     color: "hsl(0, 0%, 90%)",
   },
 });
-const startTimeMin = 24;
+const startTimeMin = 25;
 const breakTimeMin = 5;
 
 export default function Timer({
@@ -28,7 +28,7 @@ export default function Timer({
   setOnBreak,
   startTimer,
   setStartTimer,
-  setTriggerAnimation
+  setTriggerAnimation,
 }) {
   const [timeRemainingMin, setTimeRemainingMin] = useState(startTimeMin);
   const [breakRemainingMin, setBreakRemainingMin] = useState(breakTimeMin);
@@ -42,33 +42,33 @@ export default function Timer({
       clearInterval(timer);
       return;
     }
-    if (startTimer && remainingSec > 0) {
+    if (startTimer && remainingSec > 1) {
       timer = setInterval(() => {
         setRemainingSec((prevTime) => prevTime - 1);
       }, 1000);
     }
-    if (startTimer && remainingSec <= 0 && timeRemainingMin > 0) {
+    if (startTimer && remainingSec <= 1 && timeRemainingMin > 1) {
       setTimeRemainingMin((prevTime) => prevTime - 1);
       setRemainingSec(59);
-      setTriggerAnimation(true)
+      setTriggerAnimation(true);
     }
-    if (startTimer && timeRemainingMin === 0 && remainingSec === 0) {
+    if (startTimer && timeRemainingMin === 1 && remainingSec === 1) {
       setTimeout(() => {
         setOnBreak(true);
         setStartTimer(false);
       }, 1000);
     }
-    if (onBreak && remainingSec > 0) {
+    if (onBreak && remainingSec > 1) {
       timer = setInterval(() => {
         setRemainingSec((prevTime) => prevTime - 1);
       }, 1000);
     }
-    if (onBreak && remainingSec <= 0 && breakRemainingMin > 0) {
+    if (onBreak && remainingSec <= 1 && breakRemainingMin > 1) {
       setBreakRemainingMin((prevTime) => prevTime - 1);
       setRemainingSec(59);
       setTriggerAnimation(true);
     }
-    if (onBreak && breakRemainingMin === 0 && remainingSec === 0) {
+    if (onBreak && breakRemainingMin === 1 && remainingSec === 1) {
       setTimeout(() => {
         setOnBreak(false);
         setTimeRemainingMin(startTimeMin);
@@ -90,7 +90,10 @@ export default function Timer({
       </Text>
       <Text style={styles.timerStyles}>
         {!startTimer && !onBreak
-          ? "25"
+          ? timeRemaining
+          : (!onBreak && timeRemainingMin < 1) ||
+            (onBreak && breakRemainingMin < 1)
+          ? remainingSec
           : onBreak
           ? breakRemaining
           : timeRemaining}

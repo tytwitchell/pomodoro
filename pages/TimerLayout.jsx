@@ -49,7 +49,7 @@ export default function TimerLayout() {
       {
         rotate: rotationValue.interpolate({
           inputRange: [0, 1],
-          outputRange: ["0deg", "365deg"],
+          outputRange: ["0deg", "361deg"],
         }),
       },
     ],

@@ -10,13 +10,16 @@ Pomodoro Timers are used to enhance focus time.  The theory behind them is to fo
 4) Code Highlights
 
 # Demo
-Focus timer begins once user clicks anywhere on the screen
+Focus timer begins once user clicks anywhere on the screen.
 
-https://github.com/tytwitchell/pomodoro/assets/135183794/48bb997b-0785-4a8f-b8d9-5b18372677c3
+<img width="832" alt="start" src="https://github.com/tytwitchell/pomodoro/assets/135183794/f07dcd32-5836-4a5f-abae-138ba6a26d2f">
 
-After focus timer finishes, break timer begins automatically
+Border rotates every second.
 
-https://github.com/tytwitchell/pomodoro/assets/135183794/0364f6e2-d0eb-4d36-9f93-05d942413e94
+<img width="743" alt="focus" src="https://github.com/tytwitchell/pomodoro/assets/135183794/48d4c067-2fac-443a-bf8f-a905028693b2">
+
+After focus timer finishes, break timer begins automatically.
+After break timer finishes, the user has the option to restart the focus timer.
 
 
 # How to use Application

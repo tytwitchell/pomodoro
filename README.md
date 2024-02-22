@@ -1,6 +1,6 @@
 # Pomodoro Timer
 
-Pomodoro Timers are used to enhance focus time.  The theory behind them is to focus for 25 minutes and take a break for 5 minutes. I decided to build my own Pomodoro Timer as a method for learning React Native.
+Pomodoro timers are used to enhance productivity during focus time. The theory behind this method of productivity is to focus for 25 minutes and take a break for 5 minutes. I decided to build my own Pomodoro Timer with React Native so I can use it while building other apps.
 
 # In This Document
 

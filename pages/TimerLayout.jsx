@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import { StyleSheet, View, Animated, Easing } from "react-native";
+import { StyleSheet, View, Animated, Easing, TouchableOpacity } from "react-native";
 import Timer from "../components/Timer";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -31,6 +31,7 @@ export default function TimerLayout() {
   const [startTimer, setStartTimer] = useState(false);
   const [onBreak, setOnBreak] = useState(false);
   const [triggerAnimation, setTriggerAnimation] = useState(false);
+  const [pressed, setPressed] = useState(false);
   const rotationValue = useRef(new Animated.Value(0)).current;
 
   const startAnimation = () => {
@@ -49,7 +50,7 @@ export default function TimerLayout() {
       {
         rotate: rotationValue.interpolate({
           inputRange: [0, 1],
-          outputRange: ["0deg", "365deg"],
+          outputRange: ["0deg", "360deg"],
         }),
       },
     ],
@@ -89,6 +90,8 @@ export default function TimerLayout() {
           startTimer={startTimer}
           setStartTimer={setStartTimer}
           setTriggerAnimation={setTriggerAnimation}
+          pressed={pressed}
+          setPressed={setPressed}
         />
       </View>
     </>

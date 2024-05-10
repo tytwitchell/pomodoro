@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Dimensions } from "react-native";
+import { StyleSheet, View } from "react-native";
 import TimerLayout from "./pages/TimerLayout";
 
 const styles = StyleSheet.create({
@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   wrapper: {
-    width: "350px",
+    width: 350,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",

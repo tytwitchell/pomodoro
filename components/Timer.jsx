@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
-
+import { useFonts } from "expo-font";
 const styles = StyleSheet.create({
   timerContainerStyles: {
     position: "fixed",
@@ -14,8 +13,8 @@ const styles = StyleSheet.create({
     gap: "16",
   },
   timerStyles: {
+    fontFamily: "ubuntu-regular",
     fontSize: 50,
-    fontWeight: "500",
     fontVariant: "tabular-nums",
     color: "hsl(0, 0%, 90%)",
   },
@@ -29,12 +28,17 @@ export default function Timer({
   startTimer,
   setStartTimer,
   setTriggerAnimation,
+  pressed,
+  setPressed,
 }) {
   const [timeRemainingMin, setTimeRemainingMin] = useState(startTimeMin);
   const [breakRemainingMin, setBreakRemainingMin] = useState(breakTimeMin);
   const [remainingSec, setRemainingSec] = useState(59);
-  const timeRemaining = `${timeRemainingMin}`;
-  const breakRemaining = `${breakRemainingMin}`;
+
+  useFonts({
+    "ubuntu-regular": require("../assets/Ubuntu-Regular.ttf"),
+    "ubuntu-light": require("../assets/Ubuntu-Light.ttf"),
+  });
 
   useEffect(() => {
     let timer;
@@ -84,19 +88,21 @@ export default function Timer({
     <TouchableOpacity
       style={styles.timerContainerStyles}
       onPress={() => setStartTimer(true)}
+      onPressIn={() => setPressed(true)}
+      onPressOut={() => setPressed(false)}
     >
-      <Text style={styles.timerStyles}>
+      <Text style={[styles.timerStyles, { fontSize: pressed ? 47 : 50 }]}>
         {!startTimer && !onBreak ? "Start" : onBreak ? "Take a break" : "Focus"}
       </Text>
-      <Text style={styles.timerStyles}>
+      <Text style={[styles.timerStyles, { fontSize: pressed ? 47 : 50 }]}>
         {!startTimer && !onBreak
-          ? timeRemaining
+          ? timeRemainingMin
           : (!onBreak && timeRemainingMin < 1) ||
             (onBreak && breakRemainingMin < 1)
           ? remainingSec
           : onBreak
-          ? breakRemaining
-          : timeRemaining}
+          ? breakRemainingMin
+          : timeRemainingMin}
       </Text>
     </TouchableOpacity>
   );
